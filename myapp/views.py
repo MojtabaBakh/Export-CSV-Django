@@ -3,6 +3,8 @@ from . models import Student
 from django.http import HttpResponse
 import datetime
 import csv
+import xlwt
+
 
 
 
@@ -28,5 +30,29 @@ def Export_students(request):
     for student in students :
         writer.writerow([student.id , student.Name , student.Family , student.Code])
     return response
+
+
+
+def export_excel(response):
+    response=HttpResponse(content_type="apllication/ms-excel")
+    response["content-Disposition"]='attachment ; filename=students'+str(datetime.datetime.now())+'.xls'
+    
+    workbook=xlwt.Workbook(encoding='utf-8')
+    worksheet=workbook.add_sheet("students")
+    columns=['id' , 'Name' , 'Last Name' , 'Student Code']
+    rownumber=0
+    
+    for col in range(len(columns)):
+        worksheet.write(rownumber , col , columns[col])
+        
+    students=Student.objects.all().values_list('id' , 'Name' , 'Family' , 'Code')
+    
+    for std in students:
+        rownumber+=1
+        
+        for col in range(len(std)):
+            worksheet.write(rownumber , col , std[col])
     
     
+    workbook.save(response)
+    return response
