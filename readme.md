@@ -1,4 +1,4 @@
-this app let you to download students data as csv file and Excel file ( .xls )
+this app let you to download students data as pdf , csv file and Excel file ( .xls )
 
 
 We have module like this
@@ -25,6 +25,15 @@ you can click on export csv and your exported data is like :
 
 
 ![Neutral png](/pictures/data.png) 
+
+
+
+you can click on export pdf and your exported data is like :
+
+
+![Neutral png](/pictures/data2.png) 
+
+
 
 
 enjoy!

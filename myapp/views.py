@@ -4,6 +4,8 @@ from django.http import HttpResponse
 import datetime
 import csv
 import xlwt
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 
 
@@ -55,4 +57,17 @@ def export_excel(response):
     
     
     workbook.save(response)
+    return response
+
+
+def export_pdf(request):
+    response=HttpResponse(content_type="apllication/pdf")
+    response["content-Disposition"]='attachment ; filename=students'+str(datetime.datetime.now())+'.pdf'
+    
+    template_path="myapp/studentspdf.html"
+    template=get_template(template_path)
+    students=Student.objects.all()
+    context={"students": students}
+    html=template.render(context)
+    pisa.CreatePDF( html , dest=response  )
     return response
