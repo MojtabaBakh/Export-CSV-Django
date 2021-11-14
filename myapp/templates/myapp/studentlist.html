@@ -1,0 +1,57 @@
+
+ {% extends 'myapp/layout.html' %}
+
+{% block titlepage %}
+
+this is all Students List
+
+{% endblock %}
+
+
+{% block MainContent %}
+
+
+
+
+            </div>
+            <br>
+            <br>
+            
+
+
+                <table class="table table-borded">
+                    <thead>
+                    <tr style=" background-color : green ; color : white ;">
+                        <th>Name</th>
+                        <th>Family</th>
+
+                    </tr>
+                    </thead>
+                    <thead>
+                    {% for student in students %}
+                    <tr style=" background-color : green ; color : white ;">
+                        <th><a href="{{student.get_absolute_url}}">{{student.Name}}</a></th>
+                        <th>{{student.Family}}</th>
+
+                    </tr>
+                    {% endfor %}
+                    </thead>
+                
+                
+                
+                </table>
+        </div>
+
+
+        <div>
+  
+        
+        <a href="/Exportstudent/" class='btn btn-success' >Export CSV</a>
+        
+        </div>
+
+
+
+
+
+{% endblock %}
