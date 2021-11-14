@@ -18,7 +18,7 @@ our list page is like this
 you can click on export csv and your exported data is like :
 
 
-![Neutral png](/pictures/Data.png) 
+![Neutral png](/pictures/data.png) 
 
 
 enjoy!
