@@ -14,7 +14,7 @@ our list page is like this
 ![Neutral png](/pictures/main.png) 
 
 
-you can click on export excel and your exported data is like :
+you can click on export excel and your exported data is like ( on student sheet) :
 
 
 ![Neutral png](/pictures/data1.png) 
